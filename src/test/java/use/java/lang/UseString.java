@@ -1,8 +1,10 @@
+package use.java.lang;
+
 import org.junit.Assert;
 import org.junit.Test;
 
 
-public class TestString {
+public class UseString {
 
     @Test
     public void testStringConstructorWithoutParameter(){
