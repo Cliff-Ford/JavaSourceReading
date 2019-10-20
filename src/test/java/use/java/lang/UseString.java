@@ -89,4 +89,23 @@ public class UseString {
         log.info("AbC".toLowerCase(Locale.JAPAN));
         log.info("测试String的public方法结束,并且所有方法的返回值在预料之中");
     }
+
+    @Test
+    public void testStaticMethod(){
+        int compareResult = String.CASE_INSENSITIVE_ORDER.compare("abc", "Abc");
+        log.info(String.valueOf(compareResult));
+        log.info(String.join("#","a","b","c"));
+        log.info(String.format("a%s%s%s","b","c","c"));
+        log.info(String.format(Locale.CHINA,"%s","中"));
+        log.info(String.valueOf(new char[]{'s','h'}));
+        log.info(String.valueOf(new char[]{'s','h'},0,1));
+        log.info(String.copyValueOf(new char[]{'s','h'},0,1));
+        log.info(String.copyValueOf(new char[]{'9'}));
+        log.info(String.valueOf(true));
+        log.info(String.valueOf('k'));
+        log.info(String.valueOf(1));
+        log.info(String.valueOf(20L));
+        log.info(String.valueOf(3.5));
+        log.info(String.valueOf(3.89898898902));
+    }
 }
