@@ -153,7 +153,13 @@ public class UseArrays {
         int[] b = new int[5];
         Arrays.fill(b,2,4,8);
         log.info(Arrays.toString(b));
-        //支持long[],int[],short[],char[],byte[],boolean[],double[],float[],Object[]类型的等价判断
+        //支持long[],int[],short[],char[],byte[],boolean[],double[],float[],Object[]类型的填充
+        Student[] students = new Student[3];
+        Student student = new Student();
+        student.setNo(6);
+        Arrays.fill(students,student);
+        student.setNo(1);
+        log.info(Arrays.toString(students));
     }
 
     @Test
@@ -165,6 +171,7 @@ public class UseArrays {
         }
         Teacher[] copy = Arrays.copyOf(teachers, 3);
         Teacher[] range = Arrays.copyOfRange(teachers, 2, 4);
+        teachers[2].setNo(8888);
         log.info(Arrays.toString(copy));
         log.info(Arrays.toString(range));
         //支持byte[],short[],int[],long[],char[],float[],double[],boolean[]等类型数组的复制
