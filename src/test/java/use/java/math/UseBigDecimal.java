@@ -118,4 +118,51 @@ public class UseBigDecimal {
         log.info(String.valueOf(unscaledValue));
         log.info(v.toString());
     }
+
+    @Test
+    public void roundUp(){
+        log.info("ROUND_UP");
+        log.info("ROUND_DOWN");
+        log.info("ROUND_CEILING");
+        log.info("ROUND_FLOOR");
+        log.info("ROUND_HALF_UP");
+        log.info("ROUND_HALF_DOWN");
+        log.info("ROUND_HALF_EVEN");
+        log.info("ROUND_UNNECESSARY");
+    }
+
+    @Test
+    public void decimalPointMotionOperation(){
+        BigDecimal left = new BigDecimal("12.56").movePointLeft(1);
+        log.info(left.toString());
+        BigDecimal right = new BigDecimal("12.56").movePointRight(1);
+        log.info(right.toString());
+        BigDecimal scaleByPowerOfTen = new BigDecimal("12.56").scaleByPowerOfTen(2);
+        log.info(scaleByPowerOfTen.toString());
+        BigDecimal strip = new BigDecimal("60.000").stripTrailingZeros();
+        log.info(strip.toString());
+    }
+
+    @Test
+    public void comparisonOperations(){
+        BigDecimal left = new BigDecimal("12.56").movePointLeft(1);
+        BigDecimal right = new BigDecimal("12.56").movePointRight(1);
+        int compare = left.compareTo(right);
+        log.info(String.valueOf(compare));
+        log.info("compareTo方法返回0代表相等，返回正数代表this大，返回负数代表this小");
+        BigDecimal min = left.min(right);
+        BigDecimal max = left.max(right);
+        int i = left.hashCode();
+        String engineeringString = new BigDecimal("124E2").toEngineeringString();
+        log.info(min.toString());
+        log.info(max.toString());
+        log.info(String.valueOf(i));
+        log.info(engineeringString);
+        log.info(new BigDecimal("124E2").toString());
+    }
+
+    @Test
+    public void other(){
+        log.info("so many private static methods will be watch, if I have time! 2333");
+    }
 }
