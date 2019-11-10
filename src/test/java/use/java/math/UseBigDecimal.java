@@ -165,4 +165,29 @@ public class UseBigDecimal {
     public void other(){
         log.info("so many private static methods will be watch, if I have time! 2333");
     }
+
+    @Test
+    public void test(){
+        BigDecimal a = new BigDecimal("-13.8");
+        log.info(String.valueOf(a.unscaledValue()));
+        log.info(String.valueOf(a.intValue()));
+        BigDecimal b = new BigDecimal("-0.0678");
+        //BigDecimal c = new BigDecimal("-0.0678E-1");
+        log.info(String.valueOf(b.unscaledValue()));
+        log.info(String.valueOf(b.intValue()));
+        log.info("debug观察a和b几个重要属性的差别");
+    }
+
+    @Test
+    public void testMathContext(){
+        BigDecimal a = new BigDecimal("15.1111111");
+        BigDecimal b = new BigDecimal("15.4444444");
+        BigDecimal e = new BigDecimal("15.4444544");
+        BigDecimal c = a.add(b, MathContext.UNLIMITED);
+        BigDecimal d = a.add(b, MathContext.DECIMAL32);//6是偶数，所以5变成6
+        BigDecimal f = a.add(b, MathContext.DECIMAL32);//7不是偶数，所以保留6
+        log.info(c.toString());
+        log.info(d.toString());
+        log.info(f.toString());
+    }
 }
