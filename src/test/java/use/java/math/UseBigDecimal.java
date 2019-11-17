@@ -62,6 +62,9 @@ public class UseBigDecimal {
     public void arithmeticOperations() {
         BigDecimal a = new BigDecimal("18.9");
         BigDecimal b = new BigDecimal("11.11");
+        log.info(String.valueOf(a.divide(b, RoundingMode.HALF_UP)));
+        log.info(String.valueOf(a.divide(b, MathContext.DECIMAL32)));
+        log.info(String.valueOf(a.remainder(b)));
         BigDecimal c = a.add(b);
         log.info("debug模式看一下加法的实现过程，scale缩放比例的作用");
         log.info(a.toString());
